@@ -1,3 +1,25 @@
+# figuras
+figuras/
+
+# vectores
+vectores/
+
+# escudos y banderas
+escudo*/
+bandera*/
+
+# dem
+dem/
+
+# fuentes de texto
+fuentes/
+
+#hdri
+hdri/
+
+# scripts de prueba
+_X*
+
 # History files
 .Rhistory
 .Rapp.history
