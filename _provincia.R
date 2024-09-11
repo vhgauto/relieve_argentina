@@ -1,8 +1,8 @@
 
 # browseURL("https://nrennie.rbind.io/blog/script-templates-r/")
 
-# función que crea una nueva carpeta con un script para el procesamiento
-# de los datos de {tidytuesday} de la semana de interés
+# función que crea los directorios y script para el procesamiento de
+# la provincia elegida, a partir de una plantilla
 
 nueva_provincia <- function(provincia) {
 
