@@ -66,19 +66,6 @@ f_provincia <- function(provincia) {
   return(pcia)
 }
 
-# obtengo los límites internos de los departamentos
-f_departamento <- function(provincia) {
-
-  dptos <- departamentos[departamentos$provincia == provincia, ] |>
-    st_cast("MULTILINESTRING")
-
-  dptos_int <- st_difference(
-    dptos, st_cast(st_union(f_provincia(provincia)), "MULTILINESTRING")) |>
-    st_geometry()
-
-  return(dptos_int)
-}
-
 # modelo digital de elevación de la provincia de interés
 f_dem <- function(provincia, zoom = 5) {
 
@@ -114,8 +101,6 @@ f_dem <- function(provincia, zoom = 5) {
 # departamentos y relación de aspecto
 f_rayshader <- function(provincia, zoom) {
 
-  dpto_sf <- f_departamento(provincia)
-
   mensaje("Departamento")
 
   dem <- f_dem(provincia, zoom)
@@ -136,10 +121,8 @@ f_rayshader <- function(provincia, zoom) {
   names(asp) <- NULL
 
   l <- list(
-    dpto = dpto_sf,
     dem = d5,
     matrix = dem_matriz,
-    bb = dem_bb,
     asp = asp
   )
 
