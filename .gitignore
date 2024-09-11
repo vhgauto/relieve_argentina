@@ -19,6 +19,7 @@ hdri/
 
 # scripts de prueba
 _X*
+scripts/X_*.R
 
 # History files
 .Rhistory
