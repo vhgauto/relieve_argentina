@@ -224,6 +224,14 @@ f_actual <- function(provincia, zoom) {
   return(archivo_nuevo)
 }
 
+f_imagen <- function(provincia) {
+  image_read(f_actual(provincia, zoom)) |> 
+    image_scale("2000x") |> 
+    image_write(glue("img/{provincia}.png"))
+
+  mensaje("Imagen creada")
+}
+
 mensaje("Funciones cargadas")
 
 # paquetes ----------------------------------------------------------------
