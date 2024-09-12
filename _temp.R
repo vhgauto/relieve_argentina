@@ -8,7 +8,7 @@ terra::plot(dem, axes = FALSE, legend = FALSE)
 
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    scales::muted("#74ACDF"), "white", "#F6B40E", "#F6B40E"
+    hcl.colors(10, palette = "Batlow")
   ), bias = 1
 )(1024)
 )
