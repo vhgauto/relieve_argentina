@@ -227,7 +227,7 @@ f_actual <- function(provincia, zoom) {
 f_imagen <- function(provincia) {
   image_read(f_actual(provincia, zoom)) |> 
     image_scale("2000x") |> 
-    image_write(glue("img/{provincia}.png"))
+    image_write(glue("figuras_sd/{provincia}.png"))
 
   mensaje("Imagen creada")
 }
