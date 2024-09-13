@@ -101,7 +101,7 @@ f_dem <- function(provincia, zoom = 5) {
 # departamentos y relación de aspecto
 f_rayshader <- function(provincia, zoom) {
 
-  mensaje("Departamento")
+  mensaje("Provincia")
 
   dem <- f_dem(provincia, zoom)
 
