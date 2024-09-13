@@ -8,15 +8,15 @@ terra::plot(dem, axes = FALSE, legend = FALSE)
 
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    hcl.colors(10, palette = "Batlow")
-  ), bias = 1
+    scico::scico(palette = "buda", n = 100)
+      ), bias = 1.6
 )(1024)
 )
 
 colorRampPalette(
   c(
-    scales::muted("#74ACDF"), "white", "#F6B40E", "#F6B40E", "#F6B40E"
-  ), bias = 1
+    scico::scico(palette = "buda", n = 100)
+      ), bias = 3
 )(1024) |>
   scales::show_col(labels = FALSE, borders = FALSE)
 
