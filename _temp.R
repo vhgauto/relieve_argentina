@@ -8,8 +8,8 @@ terra::plot(dem, axes = FALSE, legend = FALSE)
 
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    scico::scico(palette = "buda", n = 100)
-      ), bias = 1.6
+    MetBrewer::met.brewer("Troy", 50)
+      ), bias = 1
 )(1024)
 )
 
