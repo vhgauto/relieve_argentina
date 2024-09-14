@@ -8,8 +8,8 @@ terra::plot(dem, axes = FALSE, legend = FALSE)
 
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    MetBrewer::met.brewer("Troy", 50)
-      ), bias = 1
+    "#26185F", "#005D67", "#FCFFDD", "#F5191C"
+      ), bias = 3
 )(1024)
 )
 
