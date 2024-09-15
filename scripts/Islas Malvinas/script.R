@@ -5,10 +5,7 @@ zoom <- 10
 obj <- f_rayshader(provincia, zoom)
 
 # corrijo valores MUY bajos
-# dem[dem$focal_median < -100] <- -100
-# obj$dem <- dem
-# obj$matrix <- raster_to_matrix(dem)
-# writeRaster(dem, "dem/Islas Malvinas_10.tif", overwrite = TRUE)
+# f_corregir(obj$dem, -100)
 
 # ventana para previsualizar
 obj$matrix |>
@@ -52,7 +49,7 @@ file_alto <- round(file_ancho*obj$asp)
     interactive = FALSE,
     width = file_ancho,
     height = file_alto,
-    samples = 256 # 256
+    samples = 256 # 50
   )
   t2 <- now()
   d <- t2 - t1
@@ -95,22 +92,30 @@ img |>
     location = "+56-30",
     size = 450,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x500"),
     gravity = "northwest",
-    offset = "+3130+40") |>
+    offset = "+3130+40"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "800x"),
     gravity = "southeast",
-    offset = "+200+200") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2000x"),
     gravity = "southwest",
-    offset = "+20+40") |>
+    offset = "+20+40"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
