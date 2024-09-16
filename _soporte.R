@@ -232,6 +232,13 @@ f_imagen <- function(provincia) {
   mensaje("Imagen creada")
 }
 
+f_corregir <- function(raster, limite) {
+  raster[raster$focal_median < limite] <- limite
+  writeRaster(raster, glue("dem/{provincia}_{zoom}.tif"), overwrite = TRUE)
+
+  mensaje("DEM corregido")
+}
+
 mensaje("Funciones cargadas")
 
 # paquetes ----------------------------------------------------------------
