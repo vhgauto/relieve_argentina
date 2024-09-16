@@ -11,31 +11,8 @@ obj$matrix |>
       c(
         "#D9700F", "#32B2DA", "#FFCD11"
       ), bias = 1
-    )(128)
+    )(1024)
   ) |>
-  # departamentos
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "black",
-      linewidth = 10,
-      lty = 1
-    ),
-    alphalayer = .9
-  ) |>
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "white",
-      linewidth = 4,
-      lty = 1
-    ),
-    alphalayer = .9
-  )|>
   # mapa
   plot_3d(
     heightmap = obj$matrix,
@@ -64,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -80,10 +57,12 @@ file_alto <- round(file_ancho*obj$asp)
   beepr::beep(sound = 2)
 }
 
-# 2h 32m
+# 2h 27m
 
+# abro figura
 browseURL(file_name)
 
+# cierro ventana interactiva
 rgl::close3d()
 
 # anotaciones -------------------------------------------------------------
@@ -101,7 +80,7 @@ f_caption(
 # escudo, bandera y caption
 f_simbolos(provincia)
 
-# agrego contorno a la bandera (que parece un escudo)
+# agrego contorno a la bandera
 bandera <- bandera |>
   image_border("grey30", "70x70")
 
@@ -109,27 +88,35 @@ bandera <- bandera |>
 img |>
   # título
   image_annotate(
-    text = provincia,
+    text = "Jujuy",
     color = "#005197",
-    location = "+200+150",
+    location = "+200+100",
     size = 450,
     font = "Cambria",
-    gravity = "northeast") |>
+    gravity = "northeast"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x600"),
     gravity = "northeast",
-    offset = "+1400+170") |>
+    offset = "+1400+120"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "730x"),
     gravity = "southwest",
-    offset = "+200+200") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2000x"),
     gravity = "southeast",
-    offset = "+0+100") |>
+    offset = "+0+100"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
