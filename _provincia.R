@@ -24,7 +24,7 @@ nueva_provincia <- function(provincia) {
   }
 
   # creo directorio del script
-  dir.create(semana_carpeta, recursive = TRUE)
+  dir.create(semana_carpeta, recursive = TRUE, showWarnings = FALSE)
 
   # creo directorio para las figuras
   dir.create(glue::glue("figuras/{provincia}/"), showWarnings = FALSE)
