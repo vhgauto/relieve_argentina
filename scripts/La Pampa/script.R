@@ -11,31 +11,8 @@ obj$matrix |>
       c(
         PrettyCols::prettycols("Coast")
       ), bias = 2
-    )(128)
+    )(1024)
   ) |>
-  # departamentos
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "black",
-      linewidth = 10,
-      lty = 1
-    ),
-    alphalayer = .9
-  ) |>
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "white",
-      linewidth = 4,
-      lty = 1
-    ),
-    alphalayer = .9
-  )|>
   # mapa
   plot_3d(
     heightmap = obj$matrix,
@@ -64,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -80,10 +57,12 @@ file_alto <- round(file_ancho*obj$asp)
   beepr::beep(sound = 2)
 }
 
-# 49m
+# 54m
 
+# abro figura
 browseURL(file_name)
 
+# cierro ventana interactiva
 rgl::close3d()
 
 # anotaciones -------------------------------------------------------------
@@ -107,25 +86,33 @@ img |>
   image_annotate(
     text = "La Pampa",
     color = "#9FC735",
-    location = "+200+100",
+    location = "+180+62",
     size = 450,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
-    composite_image = image_scale(escudo, "x600"),
+    composite_image = image_scale(escudo, "x700"),
     gravity = "northwest",
-    offset = "+200+620") |>
+    offset = "+180+620"
+  ) |>
   # bandera
   image_composite(
-    composite_image = image_scale(bandera, "800x"),
+    composite_image = image_scale(bandera, "1100x"),
     gravity = "southwest",
-    offset = "+130+350") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2000x"),
-    gravity = "southwest",
-    offset = "+50+100") |>
+    gravity = "southeast",
+    offset = "+130+160"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)

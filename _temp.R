@@ -4,14 +4,14 @@ mat <- obj$matrix
 
 format(object.size(mat), units = "Mb")
 
-terra::plot(dem, axes = FALSE, legend = FALSE)
-
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    "#26185F", "#005D67", "#FCFFDD", "#F5191C"
-      ), bias = 3
+    "#D9700F", "#32B2DA", "#FFCD11"
+  ), bias = 1
 )(1024)
 )
+
+terra::plot(dem, axes = FALSE, legend = FALSE)
 
 colorRampPalette(
   c(
@@ -25,7 +25,7 @@ dem_tbl <- as.data.frame(dem) |>
 
 ggplot(dem_tbl, aes(focal_median)) +
   geom_histogram(binwidth = 10) +
-  geom_vline(xintercept = -100, color = "red") +
+  geom_vline(xintercept = -10, color = "red") +
   scale_y_log10() +
   theme_bw(base_size = 3) +
   theme(aspect.ratio = .4)
