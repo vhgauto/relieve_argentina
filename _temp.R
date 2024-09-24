@@ -6,19 +6,12 @@ format(object.size(mat), units = "Mb")
 
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    MetBrewer::met.brewer("Ingres")
-  ), bias = 2
+    "#FFCD11", "#FFCD11", "#0B7156", "#8D1C06", "#C9C9DD"
+  ), bias = 2.3
 )(1024)
 )
 
 terra::plot(dem, axes = FALSE, legend = FALSE)
-
-colorRampPalette(
-  c(
-    scico::scico(palette = "buda", n = 100)
-      ), bias = 3
-)(1024) |>
-  scales::show_col(labels = FALSE, borders = FALSE)
 
 dem_tbl <- as.data.frame(dem) |>
   as_tibble()

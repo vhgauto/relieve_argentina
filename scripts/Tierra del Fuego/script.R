@@ -5,10 +5,7 @@ zoom <- 9
 obj <- f_rayshader(provincia, zoom)
 
 # corrijo valores MUY bajos
-# dem[dem$focal_median < -70] <- -70
-# obj$dem <- dem
-# obj$matrix <- raster_to_matrix(dem)
-# writeRaster(dem, "dem/Tierra del Fuego_9.tif", overwrite = TRUE)
+# f_corregir(obj$dem, -70)
 
 # ventana para previsualizar
 obj$matrix |>
@@ -95,22 +92,30 @@ img |>
     location = "+200+150",
     size = 450,
     font = "Cambria",
-    gravity = "northeast") |>
+    gravity = "northeast"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x500"),
     gravity = "northeast",
-    offset = "+220+800") |>
+    offset = "+220+800"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "600x"),
     gravity = "southeast",
-    offset = "+100+100") |>
+    offset = "+100+100"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2000x"),
     gravity = "southwest",
-    offset = "-20+60") |>
+    offset = "-20+60"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)

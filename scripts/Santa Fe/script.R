@@ -41,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -56,8 +56,6 @@ file_alto <- round(file_ancho*obj$asp)
   Sys.sleep(1)
   beepr::beep(sound = 2)
 }
-
-# 53m
 
 # abro figura
 browseURL(file_name)
@@ -89,22 +87,30 @@ img |>
     location = "+200+150",
     size = 550,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x700"),
     gravity = "northwest",
-    offset = "+2500+170") |>
+    offset = "+2500+170"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "1300x"),
     gravity = "southeast",
-    offset = "+200+200") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2500x"),
     gravity = "southwest",
-    offset = "+97+150") |>
+    offset = "+97+150"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)

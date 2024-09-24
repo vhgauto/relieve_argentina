@@ -89,22 +89,30 @@ img |>
     location = "+200+150",
     size = 550,
     font = "Cambria",
-    gravity = "northeast") |>
+    gravity = "northeast"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x600"),
     gravity = "northeast",
-    offset = "+2550+190") |>
+    offset = "+2550+190"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "900x"),
     gravity = "southeast",
-    offset = "+200+200") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2400x"),
     gravity = "southwest",
-    offset = "+50+100") |>
+    offset = "+50+100"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)

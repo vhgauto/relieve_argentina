@@ -42,7 +42,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -90,22 +90,30 @@ img |>
     location = "+200+150",
     size = 450,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x800"),
     gravity = "northwest",
-    offset = "+220+800") |>
+    offset = "+220+800"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "1500x"),
     gravity = "southwest",
-    offset = "+200+300") |>
+    offset = "+200+300"
+  ) |>
   # autor
   image_composite(
-    composite_image = image_scale(autor, "2400x"),
-    gravity = "southeast",
-    offset = "+97+150") |>
+    composite_image = image_scale(autor, "2000x"),
+    gravity = "south",
+    offset = "+97+150"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)

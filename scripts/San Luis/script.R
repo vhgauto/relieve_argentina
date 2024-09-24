@@ -41,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -82,7 +82,7 @@ f_simbolos(provincia)
 
 # contorno en la bandera
 bandera <- bandera |>
-  image_border("grey60", "70x70")
+  image_border("grey60", "30x30")
 
 # agrego título y autor
 img |>
@@ -93,22 +93,30 @@ img |>
     location = "+200+150",
     size = 600,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x700"),
     gravity = "northwest",
-    offset = "+2700+170") |>
+    offset = "+2700+170"
+  ) |>
   # bandera
   image_composite(
-    composite_image = image_scale(bandera, "1370x"),
+    composite_image = image_scale(bandera, "1330x"),
     gravity = "southwest",
-    offset = "+200+200") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2500x"),
     gravity = "southeast",
-    offset = "+97+150") |>
+    offset = "+97+150"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
