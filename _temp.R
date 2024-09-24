@@ -6,8 +6,8 @@ format(object.size(mat), units = "Mb")
 
 terra::plot(dem, axes = FALSE, legend = FALSE, col = colorRampPalette(
   c(
-    "#D9700F", "#32B2DA", "#FFCD11"
-  ), bias = 1
+    MetBrewer::met.brewer("Ingres")
+  ), bias = 2
 )(1024)
 )
 
