@@ -13,29 +13,6 @@ obj$matrix |>
       ), bias = 5
     )(1024)
   ) |>
-  # departamentos
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "black",
-      linewidth = 10,
-      lty = 1
-    ),
-    alphalayer = .9
-  ) |>
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "white",
-      linewidth = 4,
-      lty = 1
-    ),
-    alphalayer = .9
-  )|>
   # mapa
   plot_3d(
     heightmap = obj$matrix,
@@ -64,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -80,7 +57,7 @@ file_alto <- round(file_ancho*obj$asp)
   beepr::beep(sound = 2)
 }
 
-# 50m
+# 49m
 
 # abro figura
 browseURL(file_name)
@@ -95,8 +72,8 @@ img <- image_read(f_actual(provincia, zoom))
 
 # genero caption
 f_caption(
-  color1 = "#0063BE", # vhgauto
-  color2 = "#009A3B", # RR.SS.
+  color1 = "#990100", # vhgauto
+  color2 = "#000000", # RR.SS.
   provincia = provincia
 )
 
@@ -108,26 +85,34 @@ img |>
   # título
   image_annotate(
     text = "Río Negro",
-    color = "#60CFA1",
+    color = "#0063BE",
     location = "+160+50",
     size = 400,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northeast"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x600"),
-    gravity = "northwest",
-    offset = "+160+610") |>
+    gravity = "northeast",
+    offset = "+160+610"
+  ) |>
   # bandera
   image_composite(
-    composite_image = image_scale(bandera, "750x"),
-    gravity = "southeast",
-    offset = "+200+200") |>
+    composite_image = image_scale(bandera, "800x"),
+    gravity = "northwest",
+    offset = "+100+100"
+  ) |>
   # autor
   image_composite(
-    composite_image = image_scale(autor, "2000x"),
-    gravity = "southwest",
-    offset = "+50+100") |>
+    composite_image = image_scale(autor, "1600x"),
+    gravity = "southeast",
+    offset = "+20+59"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
