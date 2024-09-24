@@ -13,29 +13,6 @@ obj$matrix |>
       ), bias = 3
     )(1024)
   ) |>
-  # departamentos
-  # add_overlay(
-  #   generate_line_overlay(
-  #     geometry = obj$dpto,
-  #     extent = obj$dem,
-  #     heightmap = obj$matrix,
-  #     color = "black",
-  #     linewidth = 10,
-  #     lty = 1
-  #   ),
-  #   alphalayer = .9
-  # ) |>
-  # add_overlay(
-  #   generate_line_overlay(
-  #     geometry = obj$dpto,
-  #     extent = obj$dem,
-  #     heightmap = obj$matrix,
-  #     color = "white",
-  #     linewidth = 4,
-  #     lty = 1
-  #   ),
-  #   alphalayer = .9
-  # )|>
   # mapa
   plot_3d(
     heightmap = obj$matrix,
@@ -64,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -112,22 +89,30 @@ img |>
     location = "+200+150",
     size = 450,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x600"),
     gravity = "northwest",
-    offset = "+200+800") |>
+    offset = "+200+800"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "700x"),
     gravity = "southeast",
-    offset = "+200+140") |>
+    offset = "+200+140"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2000x"),
     gravity = "southwest",
-    offset = "+60+100") |>
+    offset = "+60+100"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
