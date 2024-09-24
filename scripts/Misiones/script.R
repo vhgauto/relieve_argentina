@@ -4,42 +4,15 @@ zoom <- 9
 
 obj <- f_rayshader(provincia, zoom)
 
-linewidth1 <- 10
-linewidth2 <- 4
-x_lty <- 1
-
 # ventana para previsualizar
 obj$matrix |>
   height_shade(
     texture = colorRampPalette(
       c(
         MetBrewer::met.brewer("Paquin")
-      )
-    )(128)
+      ), bias = 1
+    )(1024)
   ) |>
-  # departamentos
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "black",
-      linewidth = linewidth1,
-      lty = 1
-    ),
-    alphalayer = .9
-  ) |>
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "white",
-      linewidth = linewidth2,
-      lty = 1
-    ),
-    alphalayer = .9
-  )|>
   # mapa
   plot_3d(
     heightmap = obj$matrix,
@@ -67,8 +40,8 @@ file_alto <- round(file_ancho*obj$asp)
   render_highquality(
     filename = file_name,
     preview = TRUE,
-    light = TRUE,
-    environment_light = hdri_file,
+    light = FALSE,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -84,16 +57,20 @@ file_alto <- round(file_ancho*obj$asp)
   beepr::beep(sound = 2)
 }
 
-file_name <- f_actual(provincia, zoom)
+# 1h 30m
+
+# abro figura
 browseURL(file_name)
 
+# cierro ventana interactiva
 rgl::close3d()
 
 # anotaciones -------------------------------------------------------------
 
 # leo la imagen generada
-img <- image_read(file_name)
+img <- image_read(f_actual(provincia, zoom))
 
+# genero caption
 f_caption(
   color1 = "#002D72", # vhgauto
   color2 = "#DA291C", # RR.SS.
@@ -103,6 +80,7 @@ f_caption(
 # escudo, bandera y caption
 f_simbolos(provincia)
 
+# agrego un contorno a la bandera
 bandera <- bandera |>
   image_border("grey90", "70x70")
 
@@ -110,27 +88,35 @@ bandera <- bandera |>
 img |>
   # título
   image_annotate(
-    text = provincia,
+    text = "Misiones",
     color = "#DA291C",
     location = "+200+150",
     size = 450,
     font = "Cambria",
-    gravity = "northwest") |>
+    gravity = "northwest"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x750"),
     gravity = "northwest",
-    offset = "+200+900") |>
+    offset = "+200+900"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "1000x"),
     gravity = "southeast",
-    offset = "+200+200") |>
+    offset = "+150+150"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2500x"),
     gravity = "southwest",
-    offset = "+50+100") |>
+    offset = "+50+100"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
