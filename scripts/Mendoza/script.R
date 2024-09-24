@@ -13,35 +13,12 @@ obj$matrix |>
       ), bias = 3
     )(1024)
   ) |>
-  # departamentos
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "black",
-      linewidth = 10,
-      lty = 1
-    ),
-    alphalayer = .9
-  ) |>
-  add_overlay(
-    generate_line_overlay(
-      geometry = obj$dpto,
-      extent = obj$dem,
-      heightmap = obj$matrix,
-      color = "white",
-      linewidth = 4,
-      lty = 1
-    ),
-    alphalayer = .9
-  )|>
   # mapa
   plot_3d(
     heightmap = obj$matrix,
     background = "white",
     windowsize = c(600, 600*obj$asp),
-    zscale = 10,
+    zscale = 5,
     solid = FALSE,
     shadow = TRUE,
     shadow_darkness = 1
@@ -64,7 +41,7 @@ file_alto <- round(file_ancho*obj$asp)
     filename = file_name,
     preview = TRUE,
     light = FALSE,
-    environment_light = hdri_file,
+    environment_light = hdri_file(),
     intensity_env = 1,
     interactive = FALSE,
     width = file_ancho,
@@ -80,10 +57,12 @@ file_alto <- round(file_ancho*obj$asp)
   beepr::beep(sound = 2)
 }
 
-# 2h 18m
+# 3h 7m
 
+# abro figura
 browseURL(file_name)
 
+# cierro ventana interactiva
 rgl::close3d()
 
 # anotaciones -------------------------------------------------------------
@@ -110,22 +89,30 @@ img |>
     location = "+200+150",
     size = 500,
     font = "Cambria",
-    gravity = "northeast") |>
+    gravity = "northeast"
+  ) |>
   # escudo
   image_composite(
     composite_image = image_scale(escudo, "x600"),
     gravity = "northeast",
-    offset = "+2500+120") |>
+    offset = "+2500+120"
+  ) |>
   # bandera
   image_composite(
     composite_image = image_scale(bandera, "900x"),
     gravity = "southeast",
-    offset = "+200+300") |>
+    offset = "+200+300"
+  ) |>
   # autor
   image_composite(
     composite_image = image_scale(autor, "2500x"),
     gravity = "southwest",
-    offset = "+50+100") |>
+    offset = "+50+100"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
