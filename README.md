@@ -12,6 +12,8 @@ En el caso de la provincia Tierra del Fuego, Sector Antártico e Islas del Atlá
 
 Los datos de relieve de las provincias se obtuvieron a partir del paquete [`{elevatr}`](https://github.com/USEPA/elevatr), indicando en cada caso el nivel de zoom deseado.
 
+Para la Ciudad Autónoma de Buenos Aires, obtuve los datos de elevación del [Instituto Geográfico Nacional](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa), a 5m, uniendo todas las porciones.
+
 Para remover valores de altura excesivamente altos o bajos, apliqué un suavizado sobre el ráster completo, a partir de una ventana móvil de 5x5 píxeles, calculando la mediana.
 
 En algunos casos, el ráster presentaba gran cantidad de valores negativos. Decidí remover directamente estos píxeles, remplazándolos con un valor constante. Para elegir este valor límite, analicé la distribución de alturas con un histograma.
