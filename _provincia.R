@@ -1,6 +1,3 @@
-
-# browseURL("https://nrennie.rbind.io/blog/script-templates-r/")
-
 # función que crea los directorios y script para el procesamiento de
 # la provincia elegida, a partir de una plantilla
 

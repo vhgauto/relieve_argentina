@@ -1,4 +1,4 @@
-# Mapas de las provincias de Argentina
+# Mapas de elevación de Argentina
 
 Descripción de los datos y la metodología para la confección de mapas de relieve de las provincias argentinas.
 
@@ -18,7 +18,7 @@ Para remover valores de altura excesivamente altos o bajos, apliqué un suavizad
 
 En algunos casos, el ráster presentaba gran cantidad de valores negativos. Decidí remover directamente estos píxeles, remplazándolos con un valor constante. Para elegir este valor límite, analicé la distribución de alturas con un histograma.
 
-## Paleta de colores
+## Paletas de colores
 
 Cada provincia presenta una paleta de colores diferente. La gran mayoría proviene de alguno de estos paquetes:
 
@@ -52,5 +52,20 @@ Una vez generado el mapa 3D con el relieve de la provincia, con la paleta de col
 
 Para todo esto utilicé el paquete [`{magick}`](https://cran.r-project.org/web/packages/magick/vignettes/intro.html), que permite la lectura del mapa generado y la posibilidad de incorporar texto, rescalar imágenes e insertar otras imágenes.
 
+## Ejecución
+
+Para facilitar la generación de los mapas de cada región, agregué scripts auxiliares: `_soporte.R` contiene todas las funciones que facilitar la descarga, lectura y selección de parámetros; `_provincia.R` se encarga de generar todos los directorios de acuerdo a la región elegida; y `_plantilla.R` es usada como base para los scripts de cada región.
+
+## Material de ayuda
+
+Este proyecto fue posible por incontables tutoriales. En particular recomiendo los canales de YouTube de [Spencer Schien](https://www.youtube.com/@MrPecners/featured) y [Milos Makes Maps](https://www.youtube.com/@milos-makes-maps/featured).
+
+La plantilla para generar los scripts por cada región fue creado a partir de [esta guía de Nicola Rennie](https://nrennie.rbind.io/blog/script-templates-r/).
+
 ## Contacto
 
+Sitio web desarrollado y mantenido por Víctor Gauto.
+
+[E-mail](mailto:victor.gauto@putlook.com)\
+[Twitter](https://x.com/vhgauto)\
+[Instagram](https://www.instagram.com/vhgauto/)
