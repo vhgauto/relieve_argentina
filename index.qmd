@@ -1,0 +1,75 @@
+---
+title: "Relieves de Argentina"
+format: 
+  html:
+    anchor-sections: true
+    number-sections: true
+    smooth-scroll: true
+    embed-resources: true
+    include-in-header: 
+      - file: extras/favicon.html
+    theme:
+      - darkly
+      - extras/mis_estilos.scss
+    mainfont: Ubuntu
+    link-external-icon: false
+    link-external-newwindow: true
+    link-citations: true
+    code-link: true
+    code-copy: true
+    code-annotations: false
+    code-line-numbers: false
+    tbl-cap-location: margin
+    fig-cap-location: bottom
+    callout-icon: false
+editor_options:
+  chunk_output_type: console
+crossrefs-hover: false
+lang: es
+execute: 
+  echo: false
+  warning: false
+  eval: true
+---
+
+```{r}
+source("scripts_quarto/mapa.R")
+```
+<center>
+Click en cualquier región para descargar el mapa de relieve.
+</center>
+
+<br>
+
+```{r}
+#| column: body
+g_int
+```
+
+<br>
+<br>
+<br>
+
+
+<center>
+Sitio web desarrollado y mantenido por: Víctor Gauto.
+<br>
+
+<span style='font-size: 1.3rem'>
+[{{< fa envelope >}}](mailto:victor.gauto@putlook.com)&nbsp;&nbsp;&nbsp;&nbsp;
+[{{< fa brands github >}}](https://github.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
+[{{< fa brands twitter >}}](https://x.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
+[{{< fa brands instagram >}}](https://www.instagram.com/vhgauto/)
+</span>
+
+<br>
+<br>
+
+Ver en [{{< fa brands github >}}](https://github.com/vhgauto)
+
+</center>
+
+
+<p style="color: `r c5`; font-family: JetBrains Mono" align="right">
+`r format(now(), "%d/%m/%Y %H:%M:%S")`
+</p>

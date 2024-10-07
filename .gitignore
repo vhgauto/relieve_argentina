@@ -1,3 +1,18 @@
+# acomodo de vectores
+scripts_quarto/_vectores_arg.R
+
+# versiones del mapa animado
+scripts_quarto/mapa_animado*
+
+# extensión quarto
+_extensions/
+
+# autor de cada figura
+captions/
+
+# miniaturas de mapas
+mapas_mini/
+
 # figuras
 figuras/
 
