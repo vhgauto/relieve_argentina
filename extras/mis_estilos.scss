@@ -34,11 +34,12 @@ $c4: white;
 
 a {
   color: $c4;
+  text-decoration: none;
 }
 
 a:hover {
   color: $c3;
-  text-decoration-color: $c3;
+  text-decoration-color: none;
 }
 
 // fuente de la fecha

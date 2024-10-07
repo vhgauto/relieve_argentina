@@ -65,7 +65,7 @@ Sitio web desarrollado y mantenido por: Víctor Gauto.
 <br>
 <br>
 
-Ver en [{{< fa brands github >}}](https://github.com/vhgauto)
+[Ver en {{< fa brands github >}}](https://github.com/vhgauto)
 
 </center>
 
