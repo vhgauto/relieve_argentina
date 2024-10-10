@@ -48,12 +48,22 @@ g_int
 
 <br>
 <br>
-<br>
-
 
 <center>
-Sitio web desarrollado y mantenido por: Víctor Gauto.
-<br>
+
+[Ver todos los mapas](https://github.com/vhgauto/relieve_argentina/tree/main/figuras_sd)
+
+[Descargar .zip con todos los mapas {{< fa download >}}](https://1drv.ms/u/s!AtWiMfGW5EJQyr0cT7A0FB5yVEXaSg?e=IUnmrV)
+
+<span style="color: `r c3`">·
+</span>
+
+[Ver en {{< fa brands github >}}](https://github.com/vhgauto/relieve_argentina)
+
+<span style="color: `r c3`">·
+</span>
+
+Sitio web desarrollado y mantenido por: <b>Víctor Gauto</b>.
 
 <span style='font-size: 1.3rem'>
 [{{< fa envelope >}}](mailto:victor.gauto@putlook.com)&nbsp;&nbsp;&nbsp;&nbsp;
@@ -61,11 +71,6 @@ Sitio web desarrollado y mantenido por: Víctor Gauto.
 [{{< fa brands twitter >}}](https://x.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
 [{{< fa brands instagram >}}](https://www.instagram.com/vhgauto/)
 </span>
-
-<br>
-<br>
-
-[Ver en {{< fa brands github >}}](https://github.com/vhgauto/relieve_argentina)
 
 </center>
 
