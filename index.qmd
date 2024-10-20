@@ -51,7 +51,7 @@ g_int
 
 <center>
 
-[Ver todos los mapas](https://github.com/vhgauto/relieve_argentina/tree/main/figuras_sd)
+[Ver todos los mapas](https://github.com/vhgauto/relieve_argentina/tree/main/figuras)
 
 [Descargar .zip con todos los mapas {{< fa download >}}](https://1drv.ms/u/s!AtWiMfGW5EJQyr0cT7A0FB5yVEXaSg?e=IUnmrV)
 
@@ -63,7 +63,7 @@ g_int
 <span style="color: `r c3`">·
 </span>
 
-Sitio web desarrollado y mantenido por: <b>Víctor Gauto</b>.
+Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b>
 
 <span style='font-size: 1.3rem'>
 [{{< fa envelope >}}](mailto:victor.gauto@putlook.com)&nbsp;&nbsp;&nbsp;&nbsp;
