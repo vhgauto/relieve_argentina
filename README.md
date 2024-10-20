@@ -64,8 +64,10 @@ La plantilla para generar los scripts por cada región fue creado a partir de [e
 
 ## Contacto
 
-Sitio web desarrollado y mantenido por Víctor Gauto.
+Sitio web desarrollado y mantenido por [<b>Víctor Gauto</b>](mailto:victor.gauto@putlook.com).
 
-[E-mail](mailto:victor.gauto@putlook.com)\
-[Twitter](https://x.com/vhgauto)\
-[Instagram](https://www.instagram.com/vhgauto/)
+<p align="center">
+
+[![](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/vhgauto/) [![](https://skillicons.dev/icons?i=twitter)](https://x.com/vhgauto)
+
+</p>
