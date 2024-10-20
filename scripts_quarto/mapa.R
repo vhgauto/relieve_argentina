@@ -24,9 +24,15 @@ f_gg <- function(datos, expand = TRUE) {
 f_vector <- function(vector) {
   st_read(glue("vectores/{vector}"), quiet = TRUE) |>
     mutate(
+      region2 = str_replace_all(region, " ", "_")
+    ) |> 
+    mutate(
+      region2 = glue("{region2}_viz")
+    ) |> 
+    mutate(
       link = glue(
         "https://raw.githubusercontent.com/vhgauto/arg_rayshader/refs/heads/",
-        "main/figuras_sd/{region}.png"
+        "main/figuras/{region}/{region2}.png"
       )
     )
 }
