@@ -68,6 +68,6 @@ Sitio web desarrollado y mantenido por [<b>Víctor Gauto</b>](mailto:victor.gaut
 
 <p align="center">
 
-[![](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/vhgauto/) [![](https://skillicons.dev/icons?i=twitter)](https://x.com/vhgauto)
+[![](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/vhgauto/) [![](https://skillicons.dev/icons?i=twitter)](https://x.com/vhgauto) [![](https://skillicons.dev/icons?i=mastodon)](https://fosstodon.org/@vhgauto)
 
 </p>
