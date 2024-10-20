@@ -42,7 +42,7 @@ Click en cualquier región para descargar el mapa de relieve.
 <br>
 
 ```{r}
-#| column: body
+#| column: page
 g_int
 ```
 
@@ -69,7 +69,7 @@ Sitio web desarrollado y mantenido por: <b>Víctor Gauto</b>.
 [{{< fa envelope >}}](mailto:victor.gauto@putlook.com)&nbsp;&nbsp;&nbsp;&nbsp;
 [{{< fa brands github >}}](https://github.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
 [{{< fa brands twitter >}}](https://x.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
-[{{< fa brands instagram >}}](https://www.instagram.com/vhgauto/)
+[{{< fa brands instagram >}}](https://www.instagram.com/vhgauto/)&nbsp;&nbsp;&nbsp;&nbsp;[{{< fa brands mastodon >}}](https://fosstodon.org/@vhgauto)
 </span>
 
 </center>
