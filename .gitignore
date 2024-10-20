@@ -17,7 +17,7 @@ captions/
 mapas_mini/
 
 # figuras
-figuras/
+figuras/*/*_dem.png
 
 # vectores
 vectores/
