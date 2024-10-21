@@ -56,7 +56,7 @@ Para todo esto utilicé el paquete [`{magick}`](https://cran.r-project.org/web/p
 
 Para facilitar la generación de los mapas de cada región, agregué scripts auxiliares: `_soporte.R` contiene todas las funciones que facilitar la descarga, lectura y selección de parámetros; `_provincia.R` se encarga de generar todos los directorios de acuerdo a la región elegida; y `_plantilla.R` es usada como base para los scripts de cada región.
 
-## Material de ayuda
+## Recursos
 
 Este proyecto fue posible por incontables tutoriales. En particular recomiendo los canales de YouTube de [Spencer Schien](https://www.youtube.com/@MrPecners/featured) y [Milos Makes Maps](https://www.youtube.com/@milos-makes-maps/featured).
 
