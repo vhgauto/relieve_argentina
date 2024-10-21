@@ -78,7 +78,7 @@ Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b
 
 ::: {.column-screen}
 
-![](rainbow.png)
+![](extras/rainbow.png)
 
 :::
 
@@ -86,5 +86,5 @@ Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b
 <br>
 
 <p style="color: `r c5`; font-family: JetBrains Mono" align="right">
-`r format(now(), "%d/%m/%Y %H:%M:%S")`
+`r format(now(), "%d/%m/%Y")`
 </p>
