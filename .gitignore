@@ -1,7 +1,11 @@
+# rainbow
+scripts_quarto/_rainbow.R
+
+# script para cambiar de nombre las figuras; dem y viz
 scripts/cambio_nombre_figuras.R
 
 # quito .zip
-figuras_sd/relieve_argentina.zip
+figuras/relieve_argentina.zip
 
 # acomodo de vectores
 scripts_quarto/_vectores_arg.R

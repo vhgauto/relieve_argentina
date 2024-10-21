@@ -53,7 +53,7 @@ g_int
 
 [Ver todos los mapas](https://github.com/vhgauto/relieve_argentina/tree/main/figuras)
 
-[Descargar .zip con todos los mapas {{< fa download >}}](https://1drv.ms/u/s!AtWiMfGW5EJQyr0cT7A0FB5yVEXaSg?e=IUnmrV)
+[Descargar .zip con todos los mapas {{< fa download >}}](https://1drv.ms/u/s!AtWiMfGW5EJQytFHkiStD8VJOqydzw?e=WdU6rt)
 
 <span style="color: `r c3`">·
 </span>
@@ -74,6 +74,16 @@ Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b
 
 </center>
 
+<br>
+
+::: {.column-screen}
+
+![](rainbow.png)
+
+:::
+
+<br>
+<br>
 
 <p style="color: `r c5`; font-family: JetBrains Mono" align="right">
 `r format(now(), "%d/%m/%Y %H:%M:%S")`
