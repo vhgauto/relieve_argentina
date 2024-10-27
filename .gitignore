@@ -4,6 +4,9 @@ scripts_quarto/_rainbow.R
 # script para cambiar de nombre las figuras; dem y viz
 scripts/cambio_nombre_figuras.R
 
+# intento de Antártida Argentina
+scripts/Antártida Argentina/nsidc.R
+
 # quito .zip
 figuras/relieve_argentina.zip
 
