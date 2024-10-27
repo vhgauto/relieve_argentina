@@ -1,23 +1,44 @@
 
-provincia <- "Antártida Argentina"
-zoom <- 7
+source("_soporte.R")
 
-obj <- f_rayshader(provincia, zoom)
+# vector de la Antártida
+# ant <- vect("vectores/dptos_antartida.gpkg")
+
+# DEM
+# dem <- elevatr::get_elev_raster(
+#   locations = sf::st_as_sf(ant),
+#   z = 5,
+#   clip = "locations"
+# ) |>
+#   rast()
+
+# dem2 <- terra::focal(dem, w = 5, fun = median, na.rm = TRUE)
+
+# names(dem) <- "focal_median"
+
+# writeRaster(dem2, "dem/Antártida Argentina_5.tif", overwrite = TRUE)
+dem <- rast("dem/Antártida Argentina_5.tif")
+
+# matriz y relación de aspecto
+mat <- raster_to_matrix(dem)
+
+e <- ext(dem)
+asp <- (e$ymax - e$ymin)/(e$xmax - e$xmin)
 
 # ventana para previsualizar
-obj$matrix |>
+mat |>
   height_shade(
     texture = colorRampPalette(
       c(
-        "PALETA DE COLORES"
+        tidyterra::hypso.colors(palette = "colombia", n = 1024)
       ), bias = 1
     )(1024)
   ) |>
   # mapa
   plot_3d(
-    heightmap = obj$matrix,
+    heightmap = mat,
     background = "white",
-    windowsize = c(600, 600*obj$asp),
+    windowsize = c(600, 600*asp),
     zscale = 5,
     solid = FALSE,
     shadow = TRUE,
@@ -28,12 +49,15 @@ obj$matrix |>
 render_camera(
   theta = 0,
   phi = 89,
-  zoom = .7
+  zoom = .6
 )
 
+provincia <- "Antártida"
+zoom <- 5
+
 file_name <- f_nombre(provincia, zoom)
-file_ancho <- 2000
-file_alto <- round(file_ancho*obj$asp)
+file_ancho <- 5000
+file_alto <- round(file_ancho*asp)
 
 {
   t1 <- now()
@@ -46,7 +70,7 @@ file_alto <- round(file_ancho*obj$asp)
     interactive = FALSE,
     width = file_ancho,
     height = file_alto,
-    samples = 50 # 256
+    samples = 256 # 256
   )
   t2 <- now()
   d <- t2 - t1
@@ -56,6 +80,8 @@ file_alto <- round(file_ancho*obj$asp)
   Sys.sleep(1)
   beepr::beep(sound = 2)
 }
+
+# 2h 13m
 
 # abro figura
 browseURL(file_name)
@@ -70,39 +96,50 @@ img <- image_read(f_actual(provincia, zoom))
 
 # genero caption
 f_caption(
-  color1 = "#000000", # vhgauto
-  color2 = "#000000", # RR.SS.
-  provincia = provincia
+  color1 = "#80146E", # vhgauto
+  color2 = "#006E37", # RR.SS.
+  provincia = "Antártida Argentina"
 )
 
 # escudo, bandera y caption
-f_simbolos(provincia)
+f_simbolos("Tierra del Fuego")
+
+# caption
+autor <- image_read("captions/Antártida Argentina.png")
 
 # agrego título y autor
 img |>
   # título
   image_annotate(
     text = "Antártida Argentina",
-    color = "#000000",
+    color = "#009B9F",
     location = "+200+150",
-    size = 450,
+    size = 470,
     font = "Cambria",
-    gravity = "northeast") |>
+    gravity = "northeast"
+  ) |>
   # escudo
   image_composite(
-    composite_image = image_scale(escudo, "x600"),
+    composite_image = image_scale(escudo, "x1100"),
     gravity = "northeast",
-    offset = "+1350+220") |>
+    offset = "+213+800"
+  ) |>
   # bandera
   image_composite(
-    composite_image = image_scale(bandera, "600x"),
+    composite_image = image_scale(bandera, "1500x"),
     gravity = "southwest",
-    offset = "+200+200") |>
+    offset = "+200+200"
+  ) |>
   # autor
   image_composite(
-    composite_image = image_scale(autor, "2000x"),
-    gravity = "south",
-    offset = "+97+150") |>
+    composite_image = image_scale(autor, "2500x"),
+    gravity = "southeast",
+    offset = "+200+160"
+  ) |>
   # guardo
   image_write(
-    path = f_nombre(provincia, zoom))
+    path = f_nombre(provincia, zoom)
+  )
+
+# reduzco tamaño
+f_imagen(provincia)
