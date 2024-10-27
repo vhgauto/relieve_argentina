@@ -1,12 +1,12 @@
 ---
 title: "Relieves de Argentina"
-format: 
+format:
   html:
     anchor-sections: true
     number-sections: true
     smooth-scroll: true
     embed-resources: true
-    include-in-header: 
+    include-in-header:
       - file: extras/favicon.html
     theme:
       - darkly
@@ -26,7 +26,7 @@ editor_options:
   chunk_output_type: console
 crossrefs-hover: false
 lang: es
-execute: 
+execute:
   echo: false
   warning: false
   eval: true
