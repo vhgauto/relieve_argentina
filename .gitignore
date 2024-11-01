@@ -7,6 +7,9 @@ scripts/cambio_nombre_figuras.R
 # intento de Antártida Argentina
 scripts/Antártida Argentina/nsidc.R
 
+# renuevos test
+test.*
+
 # quito .zip
 figuras/relieve_argentina.zip
 
