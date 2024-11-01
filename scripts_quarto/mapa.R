@@ -3,7 +3,7 @@
 source("scripts_quarto/soporte_quarto.R")
 
 # paletas de colores de cada región
-source("scripts_quarto/_paletas.R")
+source("scripts_quarto/paletas_de_color.R")
 
 # tema de la figura
 theme_set(theme_void())

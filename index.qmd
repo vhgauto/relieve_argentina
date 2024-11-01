@@ -35,6 +35,7 @@ execute:
 ```{r}
 source("scripts_quarto/mapa.R")
 ```
+
 <center>
 Click en cualquier región para descargar el mapa de relieve.
 </center>
@@ -51,25 +52,22 @@ g_int
 
 <center>
 
-[Ver todos los mapas](https://github.com/vhgauto/relieve_argentina/tree/main/figuras)
-
 [Descargar .zip con todos los mapas {{< fa download >}}](https://1drv.ms/u/s!AtWiMfGW5EJQytFHkiStD8VJOqydzw?e=WdU6rt)
 
-<span style="color: `r c3`">·
-</span>
+`r separador`
 
 [Ver en {{< fa brands github >}}](https://github.com/vhgauto/relieve_argentina)
 
-<span style="color: `r c3`">·
-</span>
+`r separador`
 
 Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b>
 
 <span style='font-size: 1.3rem'>
-[{{< fa envelope >}}](mailto:victor.gauto@putlook.com)&nbsp;&nbsp;&nbsp;&nbsp;
-[{{< fa brands github >}}](https://github.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
-[{{< fa brands twitter >}}](https://x.com/vhgauto)&nbsp;&nbsp;&nbsp;&nbsp;
-[{{< fa brands instagram >}}](https://www.instagram.com/vhgauto/)&nbsp;&nbsp;&nbsp;&nbsp;[{{< fa brands mastodon >}}](https://fosstodon.org/@vhgauto)
+[{{< fa envelope >}}](mailto:victor.gauto@outlook.com)`r espacios`
+[{{< fa brands github >}}](https://github.com/vhgauto)`r espacios`
+[{{< fa brands twitter >}}](https://x.com/vhgauto)`r espacios`
+[{{< fa brands instagram >}}](https://www.instagram.com/vhgauto/)`r espacios`
+[{{< fa brands mastodon >}}](https://fosstodon.org/@vhgauto)
 </span>
 
 </center>
@@ -78,9 +76,10 @@ Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b
 
 ::: {.column-screen}
 
-![](extras/rainbow.png)
+<center>`r arcoiris`</center>
 
 :::
+
 
 <br>
 <br>
