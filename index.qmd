@@ -80,7 +80,6 @@ Sitio web desarrollado y mantenido por <b style="color: `r c3`">Víctor Gauto</b
 
 :::
 
-
 <br>
 <br>
 
